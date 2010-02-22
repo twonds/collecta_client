@@ -3,7 +3,7 @@ from zope.interface import implements
 from twisted.internet import defer
 from twisted.python import log
 from twisted.words.protocols.jabber import (
-    xmlstream, sasl, client as jclient, sasl_mechanisms, jid)
+    xmlstream, sasl, client as jclient, sasl_mechanisms)
 
 from wokkel import client, pubsub
 
@@ -122,7 +122,7 @@ class SASLInitiatingInitializer(sasl.SASLInitiatingInitializer):
                                                            None,
                                                            jid.user,
                                                            password)
-            elif 'PLAIN' in machanisms:
+            elif 'PLAIN' in mechanisms:
                 self.mechanism = sasl_mechanisms.Plain(None, jid.user, 
                                                        password)
             else:
