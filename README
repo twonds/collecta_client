@@ -1,0 +1,6 @@
+Install latest version of twisted and wokkel.
+
+To run :
+
+twistd -y collecta_client.tac
+
